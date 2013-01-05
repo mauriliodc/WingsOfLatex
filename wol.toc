@@ -1,0 +1,19 @@
+\contentsline {chapter}{\numberline {1}Introduction}{2}
+\contentsline {chapter}{\numberline {2}Wings of War}{3}
+\contentsline {section}{\numberline {2.1}The board game}{3}
+\contentsline {section}{\numberline {2.2}Basic Rules}{3}
+\contentsline {subsection}{\numberline {2.2.1}Preparation}{3}
+\contentsline {subsection}{\numberline {2.2.2}Game turn}{4}
+\contentsline {subsection}{\numberline {2.2.3}Planning}{4}
+\contentsline {subsection}{\numberline {2.2.4}Movement}{4}
+\contentsline {subsection}{\numberline {2.2.5}Firing}{4}
+\contentsline {subsection}{\numberline {2.2.6}Damage}{5}
+\contentsline {subsection}{\numberline {2.2.7}Rest of the turn}{5}
+\contentsline {subsection}{\numberline {2.2.8}Overlapping}{5}
+\contentsline {subsection}{\numberline {2.2.9}Exit from the gaming surface}{5}
+\contentsline {subsection}{\numberline {2.2.10}Victory}{6}
+\contentsline {section}{\numberline {2.3}Our game}{6}
+\contentsline {subsection}{\numberline {2.3.1}Cards}{6}
+\contentsline {chapter}{\numberline {3}Heuristics}{7}
+\contentsline {chapter}{\numberline {4}The Brain}{8}
+\contentsline {chapter}{\numberline {5}Results}{9}
