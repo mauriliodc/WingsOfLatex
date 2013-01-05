@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.1.5)  5 JAN 2013 23:01
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.1.5)  5 JAN 2013 23:32
 entering extended mode
  %&-line parsing enabled.
 **wol.tex
@@ -85,11 +85,11 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./wol.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 3.
+(Font)              <12> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 3.
+(Font)              <8> on input line 2.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 3.
+(Font)              <6> on input line 2.
 )
 \tf@toc=\write3
 \openout3 = `wol.toc'.
@@ -98,11 +98,33 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 ]
 Chapter 1.
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
 [2
 
 ]
+Missing character: There is no ‚ in font cmr12!
+Missing character: There is no Ä in font cmr12!
+Missing character: There is no ô in font cmr12!
+ [3]
 Chapter 2.
-<images/wow.jpg, id=14, 120.2091pt x 120.45pt>
+<images/wow.jpg, id=17, 120.2091pt x 120.45pt>
 File: images/wow.jpg Graphic file (type jpg)
  <use images/wow.jpg>
 Missing character: There is no ‚ in font cmr12!
@@ -111,7 +133,7 @@ Missing character: There is no ú in font cmr12!
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ù in font cmr12!
- [3
+ [4
 
 ]
 Missing character: There is no ‚ in font cmr12!
@@ -121,49 +143,50 @@ Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
 
-[4 <./images/wow.jpg>]
+[5 <./images/wow.jpg>]
 Missing character: There is no ‚ in font cmr12!
 Missing character: There is no Ä in font cmr12!
 Missing character: There is no ô in font cmr12!
- [5]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 64.
+ [6]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 108.
+
  (/usr/share/texmf-texlive/tex/latex/base/omscmr.fd
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 64.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 108.
 
-[6]
+[7]
 Chapter 3.
-[7
+[8
 
 ]
 Chapter 4.
 Missing character: There is no √ in font cmr12!
 Missing character: There is no † in font cmr12!
-[8
+[9
 
 ]
 Chapter 5.
-[9
+[10
 
 ] (./wol.aux) ) 
 Here is how much of TeX's memory you used:
  964 strings out of 495061
  11968 string characters out of 1182622
- 61935 words of memory out of 3000000
+ 63935 words of memory out of 3000000
  4181 multiletter control sequences out of 15000+50000
  9761 words of font info for 34 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 25i,6n,19p,470b,207s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 25i,6n,19p,750b,207s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.
 pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/sh
 are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texmf-te
 xlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts
 /type1/public/amsfonts/cm/cmti12.pfb>
-Output written on wol.pdf (10 pages, 121369 bytes).
+Output written on wol.pdf (11 pages, 125209 bytes).
 PDF statistics:
- 56 PDF objects out of 1000 (max. 8388607)
+ 59 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

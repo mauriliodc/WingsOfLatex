@@ -10,7 +10,51 @@
 \maketitle
 \tableofcontents
 \chapter{Introduction}
-Prova
+
+\section{AI in games}
+
+\section{AI to move characters}
+One of the most fundamental requirements of AI is to move characters around in the game sensibly. Even the earliest AI-controlled characters (the ghosts in Pac-Man, for example, or the opposing bat in some Pong variants) had movement algorithms that weren’t far removed from the games on the shelf today. Movement forms the lowest level of AI techniques. Many games, including some with quite decent-looking AI, rely solely on movement algorithms and don’t have any more advanced decision making. At the other extreme, some games don’t need moving characters at all. Resource management games and turn-based games often don’t need movement algorithms; once a decision is made where to move, the character can simply be placed there.
+
+All movement algorithms have this same basic form. They take geometric data about their
+own state and the state of the world, and they come up with a geometric output representing the movement they would like to make.
+Some movement algorithms require very little input: the position of the character and the
+position of an enemy to chase, for example. Others require a lot of interaction with the game
+state and the level geometry. A movement algorithm that avoids bumping into walls, for example, needs to have access to the geometry of the wall to check for potential collisions.
+
+\section{Turn based games}
+Decision making is the ability of a character to decide what to do.
+decision making is typically a small part of the effort needed to build great game
+AI. Most games use very simple decision making systems: state machines and decision trees.
+Rule-based systems are rarer, but important.
+The character processes a set of information that it uses to generate an action that it wants to
+carry out. The input to the decision making system is the knowledge that a character possesses,
+and the output is an action request. The knowledge can be further broken down into external
+and internal knowledge. External knowledge is the information that a character knows about the
+game environment around it: the position of other characters, the layout of the level, whether a
+switch has been thrown, the direction that a noise is coming from, and so on. Internal knowledge
+is information about the character’s internal state or thought processes: its health, its ultimate
+goals, what it was doing a couple of seconds ago, and so on.
+Typically, the same external knowledge can drive any of the algorithms in this chapter, whereas
+the algorithms themselves control what kinds of internal knowledge can be used (although they
+don’t constrain what that knowledge represents, in game terms)
+\section{Research based approaches}
+Decision trees are fast, easily implemented, and simple to understand. They are the simplest
+decision making technique that we’ll look at, although extensions to the basic algorithm can make
+them quite sophisticated. They are used extensively to control characters and for other in-game
+decision making, such as animation control.
+They have the advantage of being very modular and easy to create.
+Given a set of knowledge, we need to generate a corresponding action from a set of possible
+actions.
+The mapping between input and output may be quite complex. The same action will be used
+for many different sets of input, but any small change in one input value might make the difference
+between an action being sensible and an action appearing stupid.
+We need a method that can easily group lots of inputs together under one action, while
+allowing the input values that are significant to control the output.
+
+
+
+
 \chapter{Wings of War}
 
 \section{The board game}
