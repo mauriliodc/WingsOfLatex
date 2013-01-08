@@ -33,25 +33,45 @@ Basically, when the algorithm explores a child node, keeps in memory the value o
 If the explored child's value turns out to be too good for the active player (the player associated with that search level), that is it is better than the value that the opponent can force the active player to obtain making another decision in a preceding level, the remaining children won't be explored.\\
 \\
 The pseudo-code will clarify:\\
-\scriptsize{\\
-  \indent\textbf{function} alphabeta(node, level, search\_depth, alpha, beta, maximizing)\{\\
-  \indent\\
-  \indent\textbf{if} \indent level==search\_depth \indent \indent \textit{// this is a leaf node}\\
-  \indent\indent \textbf{return} the heuristic value of the node\\
-  \indent\\
-  \indent\textbf{if} maximizing==true \indent\indent\indent \textit{// MAX player}\\
-  \indent\indent \textbf{for each} child of node\\
-  \indent\indent\indent alpha = max(alpha, alphabeta(child, level+1, search\_depth, alpha, beta, !maximizing)\\
-  \indent\indent\indent \textbf{if} beta $\leq$ alpha\\
-  \indent\indent\indent\indent \textbf{break} \indent\indent\indent \textit{// Beta cut-off}\\
-  \indent\indent \textbf{return} alpha\\
-  \indent\textbf{else}\indent\indent\indent\indent\indent\indent \textit{// MIN player}\\
-  \indent\indent \textbf{for each} child of node\\
-  \indent\indent\indent beta = min(beta, alphabeta(child, level+1, search\_depth, alpha, beta, !maximizing)\\
-  \indent\indent\indent \textbf{if} beta $\leq$ alpha\\
-  \indent\indent\indent\indent \textbf{break} \indent\indent\indent \textit{// Alpha cut-off}\\
-  \indent\indent \textbf{return} beta\\
-  \indent\}\\
-  \indent// the first call is:\\
-  \indent// alphabeta(root, 0, search\_depth, -infinity, +infinity, true)
+{\footnotesize
+\lstset{language=C}
+\begin{lstlisting}
+  function alphabeta(node, level, search_depth, alpha, beta,
+                     				maximizing)
+  {
+    if level==search		// this is a leaf node
+    	return the heuristic value of the node
+    
+    if maximizing		// MAX player
+    	for each child of node
+        	alpha = max(alpha, alphabeta(child, level+1,
+                			search_depth, alpha,
+                        		beta, !maximizing)
+                           )
+                if beta <= alpha
+                	break	// Beta cut-off
+        return alpha
+        
+    else			// MIN player
+    	for each child of node
+        	beta = min(alpha, alphabeta(child, level+1,
+                			search_depth, alpha,
+                        		beta, !maximizing)
+                           )
+                if beta <= alpha
+                	break	// Alpha cut-off
+        return beta
+  }
+  
+  -- first call:
+  alphabeta(root, 0, search_depth, -infinite, +infinite, true)
+\end{lstlisting}
 }
+
+\begin{figure}[htbp] \label{fig:alphabeta_example}
+  \centering
+    \includegraphics[width=0.5\textwidth]{images/alphabeta_pruning.png}
+  \caption{Alpha-Beta Pruning use example. The darker nodes are not evaluated at all.}
+\end{figure}
+
+In figure \ref{fig:alphabeta_example} you can see a simple application of the alphabeta pruning algorithm. Notice that the algorithm, in some cases, prunes big portions of the tree. In the example given it may be a little advantage, but when the depth search and the branching factor grow this may lead to a huge resources saving.
