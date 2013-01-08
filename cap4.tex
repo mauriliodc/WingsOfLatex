@@ -4,7 +4,7 @@ It is a well known algorithm for turn based games, and can be thinked of as an e
 
 We will discuss the plain minimax algorithm, then the alpha-beta pruning one, and finally the way we used it in our specific case.
 
-\section{Minimax}
+\section{Minimax} \label{sec:minimax}
 \textit{Minimax} is an algorithm for making decisions.
 The hipothesis is that of a 2 player zero-sum game, where the outcome goes from -V to V.
 
@@ -23,3 +23,35 @@ This is why the name ``minimax''.\\
 \end{figure}
 
 Of course, when the depth of the tree becomes too high to compute the actual outcome of a choice, we need to use some heuristics. Moreover, this algorithm assumes that the opponent plays with a ``perfect'' strategy, that is reasonable in normal turn-based games, but has some interesting effects when players choose more than a move each time (see chapter \ref{cap:results} for more on this).
+
+\section{Alpha-Beta pruning}
+As seen in section \ref{sec:minimax}, the minimax algorithm expands the tree up to a certain level, evaluating all the leaf nodes and backpropagating informations.
+While descending in new branches, it doesn't take into account the previously computed heuristic values.
+The \textit{alpha-beta pruning} algorithm tries to reduce the number of explored nodes, pruning branches when they are doomed to not be chosen.
+
+Basically, when the algorithm explores a child node, keeps in memory the value of the best alternative's value for the \textbf{Max} and \textbf{Min} players (respectively alpha and beta), taking into account their turns succession.
+If the explored child's value turns out to be too good for the active player (the player associated with that search level), that is it is better than the value that the opponent can force the active player to obtain making another decision in a preceding level, the remaining children won't be explored.\\
+\\
+The pseudo-code will clarify:\\
+\scriptsize{\\
+  \indent\textbf{function} alphabeta(node, level, search\_depth, alpha, beta, maximizing)\{\\
+  \indent\\
+  \indent\textbf{if} \indent level==search\_depth \indent \indent \textit{// this is a leaf node}\\
+  \indent\indent \textbf{return} the heuristic value of the node\\
+  \indent\\
+  \indent\textbf{if} maximizing==true \indent\indent\indent \textit{// MAX player}\\
+  \indent\indent \textbf{for each} child of node\\
+  \indent\indent\indent alpha = max(alpha, alphabeta(child, level+1, search\_depth, alpha, beta, !maximizing)\\
+  \indent\indent\indent \textbf{if} beta $\leq$ alpha\\
+  \indent\indent\indent\indent \textbf{break} \indent\indent\indent \textit{// Beta cut-off}\\
+  \indent\indent \textbf{return} alpha\\
+  \indent\textbf{else}\indent\indent\indent\indent\indent\indent \textit{// MIN player}\\
+  \indent\indent \textbf{for each} child of node\\
+  \indent\indent\indent beta = min(beta, alphabeta(child, level+1, search\_depth, alpha, beta, !maximizing)\\
+  \indent\indent\indent \textbf{if} beta $\leq$ alpha\\
+  \indent\indent\indent\indent \textbf{break} \indent\indent\indent \textit{// Alpha cut-off}\\
+  \indent\indent \textbf{return} beta\\
+  \indent\}\\
+  \indent// the first call is:\\
+  \indent// alphabeta(root, 0, search\_depth, -infinity, +infinity, true)
+}
