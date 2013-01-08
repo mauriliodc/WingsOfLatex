@@ -23,7 +23,9 @@
 \contentsline {section}{\numberline {3.2}Wings of War heuristic function}{9}
 \contentsline {subsection}{\numberline {3.2.1}Life Feature}{10}
 \contentsline {subsection}{\numberline {3.2.2}Shot Value Feature}{10}
-\contentsline {chapter}{\numberline {4}The Brain}{12}
-\contentsline {section}{\numberline {4.1}Minimax}{12}
-\contentsline {section}{\numberline {4.2}Alpha-Beta pruning}{13}
-\contentsline {chapter}{\numberline {5}Results}{16}
+\contentsline {section}{\numberline {3.3}Weights selection}{12}
+\contentsline {chapter}{\numberline {4}The Brain}{13}
+\contentsline {section}{\numberline {4.1}Minimax}{13}
+\contentsline {section}{\numberline {4.2}Alpha-Beta pruning}{14}
+\contentsline {section}{\numberline {4.3}Adapting Alpha-Beta pruning to WOW}{16}
+\contentsline {chapter}{\numberline {5}Results}{20}

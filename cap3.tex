@@ -73,11 +73,11 @@ the player?
 There are four situations:
 
 \begin{itemize}
-  \item Can I shot to my opponent? That is my opponent is inside the fov and
+  \item Can I shot to my opponent? That is my opponent is inside the \emph{fov} and
     in range. (\textbf{very good})
-  \item Can I see my opponent? That is my opponent is inside the fov but out of
+  \item Can I see my opponent? That is my opponent is inside the \emph{fov} but out of
     range. (\textbf{good})
-  \item My opponent is in front of me? That is my opponent is outside the fov
+  \item My opponent is in front of me? That is my opponent is outside the \emph{fov}
     but in the front semi-plane. (\textbf{not bad})
   \item My opponent is on my back? That is my opponent is in the back sami-plane.
     (\textbf{bad})
@@ -88,14 +88,44 @@ There are four situations:
   \includegraphics[width=0.8\textwidth]{images/planefov.png}
   \label{img:planefov}
   \caption{An example of shot value. The green plane has a good position respect to the
-  red one. Infact the red plane is in the fov and in range and $ShotValue(P,s)=3$. In the
-  meantime the red one has a worse position: green plane is in front of it but not in fov so
-  $ShotValue(AI,s)=1$.}
+  red one. Infact the red plane is in the \emph{fov} and in range and $ShotValue(P,s)=3$. In the
+  meantime the red one has a worse position: green plane is in front of it but not in
+  \emph{fov} so $ShotValue(AI,s)=1$.}
 \end{figure}
+
+To represent these situations we have the following $ShotValue(X,s)$ function.
+
+\begin{equation}
+ShotValue(X,s) = \begin{cases} 3, & \mbox{if plane is in range and fov}  \\
+  2, & \mbox{if plane is in fov} \\ 1 & \mbox{if plan is in front} \\ 0 & \mbox{otherwise}
+\end{cases}
+\end{equation}
+
+The value of this function can be chosen arbitrarily. The important thing is that better
+position has greater values than bad ones. \qed
+
+Now that we have a good pair of features we can build the final score equation like in
+(\ref{eq:heuristicscore}).
 
 \begin{equation}
   Score_X(s) = w_1 \cdot ShotValue(X,s) + w_2 \cdot RemainingLife(X,s)
   \label{eq:heuristicscore}
 \end{equation}
 
+Now we can put this equation in (\ref{eq:heuristic}) to get the final heuristic function
+for our game.
 
+\section{Weights selection}
+
+How can we choose $w_1$ and $w_2$? In the previous section we have found an heuristic
+function for the AI but we have not talked about the weights selection.
+
+Different wheigts choises lead to different player behaviours. For example lower $w_2$
+values brings to a more \emph{brave} player. However $w_2$ must be always greater than
+$w_1$. The reason is that life feature is the most important one and acts like a
+"cross-integrator" of the shot-value feature: a lot of good state in shot-value feature
+has the effect to reduce the enemy life feature increasing the overall heuristic value for
+the player.
+
+In other words, is more likely to have a good AI with $w_2=n$ and $w_1=0$ than with $w_2=0$
+and $w_1=n$.
