@@ -1,3 +1,58 @@
 
 \chapter{Heuristics}
-Fatti
+
+\section{State representation}
+
+The first step toward an heuristic function for \emph{Wings of War} game is to find a 
+suitable \textbf{state representation} for it. The only elements in the games are the two
+players planes. For this reason the only useful data that can be used to build an heuristic
+function are closed inside the planes parameters.
+
+Each plane has
+
+\begin{itemize}
+  \item \textbf{Life}, the amount of \emph{healt points} for the plane. When $life=0$ the
+    plane is destroyed.
+  \item \textbf{Position}, the coordinates $<x,y>$ of the plane center.
+  \item \textbf{Orientation}, the angle $\theta$ of the plane respect to the x axis.
+\end{itemize}
+
+A state $s$ of the game is completely represented by these parameters. Togheter with the
+other \textbf{fixed parameters} like range, field of view and world size they make a
+complete game description.
+
+\section{Wings of War heuristic function}
+
+The goal of the heuristic function is to quantify \emph{how good} is a state for one
+player. Heuristic function has to answer the question: how much the state $s$ is
+desiderable for player $x$?
+
+This answer is the key for the informated search algorithm described in the next chapter.
+
+A general heuristic function has the form of equation (\ref{eq:heuristic})
+
+\begin{equation}
+  H(s) = Score_{AI}(s) - Score_{Player}(s)
+  \label{eq:heuristic}
+\end{equation}
+
+The heuristic function $H(s)$ map states $s \in \Sigma$ to $\mathbb{Z}$. $H(s)$ has
+positive values in the more desiderable states for the AI and negative values otherwise.
+In the extreme cases $H(s^\star)=+\infty$ means that the state $\star{s}$ is a winning state
+for the AI and $H(\star{s})=-\infty$ means that the state $\star{s}$ is a wining state for
+the player.
+
+The question now is: how can we compute the function $Score_X(s)$? In general a score
+function has the form
+
+\begin{equation}
+  Score_X(s) = \sum_{i=1}^N w_i \cdot f_i
+\end{equation}
+
+
+\begin{equation}
+  Score_X(s) = w_1 \cdot ShotValue(X,s) + w_2 \cdot RemainingLife(X,s)
+  \label{eq:heuristicscore}
+\end{equation}
+
+
