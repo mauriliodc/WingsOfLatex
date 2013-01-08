@@ -21,7 +21,9 @@
 \contentsline {chapter}{\numberline {3}Heuristics}{9}
 \contentsline {section}{\numberline {3.1}State representation}{9}
 \contentsline {section}{\numberline {3.2}Wings of War heuristic function}{9}
-\contentsline {chapter}{\numberline {4}The Brain}{11}
-\contentsline {section}{\numberline {4.1}Minimax}{11}
-\contentsline {section}{\numberline {4.2}Alpha-Beta pruning}{12}
-\contentsline {chapter}{\numberline {5}Results}{15}
+\contentsline {subsection}{\numberline {3.2.1}Life Feature}{10}
+\contentsline {subsection}{\numberline {3.2.2}Shot Value Feature}{10}
+\contentsline {chapter}{\numberline {4}The Brain}{12}
+\contentsline {section}{\numberline {4.1}Minimax}{12}
+\contentsline {section}{\numberline {4.2}Alpha-Beta pruning}{13}
+\contentsline {chapter}{\numberline {5}Results}{16}

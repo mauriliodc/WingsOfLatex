@@ -49,6 +49,49 @@ function has the form
   Score_X(s) = \sum_{i=1}^N w_i \cdot f_i
 \end{equation}
 
+where $f_i$ is an arbitrary feature of the state and $w_i$ is the corresponding feature
+weight and says to us how much the feature $i$ is influent in the overall score.
+
+In the Wings of War scenario we have chosen only two features: the amount of remaining
+life and an aggregated indicator about planes relative position called \emph{shot value}.
+
+\subsection{Life Feature}
+
+The life feature is the most easy and powerful heuristic feature. It is just the amount of
+remaining life for the given plane in the state $s$.
+
+The heuristic implication of this feature is obvious: more life we have in state $s$
+better is it. When the remaining life is zero the player is defeated so this feature is
+really important for evaluating the goodness of a state.
+
+\subsection{Shot Value Feature}
+
+The shot value feature is more complex than the life one. It use the remaining state
+parameters (position and orientation) to answer the question: is this position good for
+the player?
+
+There are four situations:
+
+\begin{itemize}
+  \item Can I shot to my opponent? That is my opponent is inside the fov and
+    in range. (\textbf{very good})
+  \item Can I see my opponent? That is my opponent is inside the fov but out of
+    range. (\textbf{good})
+  \item My opponent is in front of me? That is my opponent is outside the fov
+    but in the front semi-plane. (\textbf{not bad})
+  \item My opponent is on my back? That is my opponent is in the back sami-plane.
+    (\textbf{bad})
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.8\textwidth]{images/planefov.png}
+  \label{img:planefov}
+  \caption{An example of shot value. The green plane has a good position respect to the
+  red one. Infact the red plane is in the fov and in range and $ShotValue(P,s)=3$. In the
+  meantime the red one has a worse position: green plane is in front of it but not in fov so
+  $ShotValue(AI,s)=1$.}
+\end{figure}
 
 \begin{equation}
   Score_X(s) = w_1 \cdot ShotValue(X,s) + w_2 \cdot RemainingLife(X,s)
