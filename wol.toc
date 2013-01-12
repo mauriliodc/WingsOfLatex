@@ -1,31 +1,30 @@
 \contentsline {chapter}{\numberline {1}Introduction}{3}
 \contentsline {section}{\numberline {1.1}AI in games}{3}
-\contentsline {section}{\numberline {1.2}AI to move characters}{3}
-\contentsline {section}{\numberline {1.3}Turn based games}{4}
-\contentsline {section}{\numberline {1.4}Research based approaches}{4}
-\contentsline {chapter}{\numberline {2}Wings of War}{5}
-\contentsline {section}{\numberline {2.1}The board game}{5}
-\contentsline {section}{\numberline {2.2}Basic Rules}{5}
-\contentsline {subsection}{\numberline {2.2.1}Preparation}{5}
-\contentsline {subsection}{\numberline {2.2.2}Game turn}{6}
-\contentsline {subsection}{\numberline {2.2.3}Planning}{6}
-\contentsline {subsection}{\numberline {2.2.4}Movement}{6}
-\contentsline {subsection}{\numberline {2.2.5}Firing}{6}
-\contentsline {subsection}{\numberline {2.2.6}Damage}{7}
-\contentsline {subsection}{\numberline {2.2.7}Rest of the turn}{7}
-\contentsline {subsection}{\numberline {2.2.8}Overlapping}{7}
-\contentsline {subsection}{\numberline {2.2.9}Exit from the gaming surface}{7}
-\contentsline {subsection}{\numberline {2.2.10}Victory}{8}
-\contentsline {section}{\numberline {2.3}Our game}{8}
-\contentsline {subsection}{\numberline {2.3.1}Cards}{8}
-\contentsline {chapter}{\numberline {3}Heuristics}{9}
-\contentsline {section}{\numberline {3.1}State representation}{9}
-\contentsline {section}{\numberline {3.2}Wings of War heuristic function}{9}
-\contentsline {subsection}{\numberline {3.2.1}Life Feature}{10}
-\contentsline {subsection}{\numberline {3.2.2}Shot Value Feature}{10}
-\contentsline {section}{\numberline {3.3}Weights selection}{12}
-\contentsline {chapter}{\numberline {4}The Brain}{13}
-\contentsline {section}{\numberline {4.1}Minimax}{13}
-\contentsline {section}{\numberline {4.2}Alpha-Beta pruning}{14}
-\contentsline {section}{\numberline {4.3}Adapting Alpha-Beta pruning to WOW}{16}
-\contentsline {chapter}{\numberline {5}Results}{20}
+\contentsline {section}{\numberline {1.2}Turn based games}{4}
+\contentsline {section}{\numberline {1.3}Research based approaches}{5}
+\contentsline {chapter}{\numberline {2}Wings of War}{6}
+\contentsline {section}{\numberline {2.1}The board game}{6}
+\contentsline {section}{\numberline {2.2}Basic Rules}{6}
+\contentsline {subsection}{\numberline {2.2.1}Preparation}{6}
+\contentsline {subsection}{\numberline {2.2.2}Game turn}{8}
+\contentsline {subsection}{\numberline {2.2.3}Planning}{8}
+\contentsline {subsection}{\numberline {2.2.4}Movement}{8}
+\contentsline {subsection}{\numberline {2.2.5}Firing}{8}
+\contentsline {subsection}{\numberline {2.2.6}Damage}{8}
+\contentsline {subsection}{\numberline {2.2.7}Rest of the turn}{9}
+\contentsline {subsection}{\numberline {2.2.8}Overlapping}{9}
+\contentsline {subsection}{\numberline {2.2.9}Exit from the gaming surface}{9}
+\contentsline {subsection}{\numberline {2.2.10}Victory}{9}
+\contentsline {section}{\numberline {2.3}Our game}{9}
+\contentsline {subsection}{\numberline {2.3.1}Cards}{10}
+\contentsline {chapter}{\numberline {3}Heuristics}{11}
+\contentsline {section}{\numberline {3.1}State representation}{11}
+\contentsline {section}{\numberline {3.2}Wings of War heuristic function}{11}
+\contentsline {subsection}{\numberline {3.2.1}Life Feature}{12}
+\contentsline {subsection}{\numberline {3.2.2}Shot Value Feature}{12}
+\contentsline {section}{\numberline {3.3}Weights selection}{14}
+\contentsline {chapter}{\numberline {4}The Brain}{15}
+\contentsline {section}{\numberline {4.1}Minimax}{15}
+\contentsline {section}{\numberline {4.2}Alpha-Beta pruning}{16}
+\contentsline {section}{\numberline {4.3}Adapting Alpha-Beta pruning to WOW}{18}
+\contentsline {chapter}{\numberline {5}Results}{22}

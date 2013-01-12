@@ -1,22 +1,28 @@
 \chapter{Introduction}
-\begin{huge}
-DA FINIRE
-\end{huge}
 \section{AI in games}
 
-\section{AI to move characters}
-One of the most fundamental requirements of AI is to move characters around in the game sensibly. Even the earliest AI-controlled characters (the ghosts in Pac-Man, for example, or the opposing bat in some Pong variants) had movement algorithms that weren’t far removed from the games on the shelf today. Movement forms the lowest level of AI techniques. Many games, including some with quite decent-looking AI, rely solely on movement algorithms and don’t have any more advanced decision making. At the other extreme, some games don’t need moving characters at all. Resource management games and turn-based games often don’t need movement algorithms; once a decision is made where to move, the character can simply be placed there.
+Artificial intelligence refers to techniques used in computer and video games to produce the illusion of intelligence in the behavior of non-player characters (NPCs). The techniques used typically draw upon existing methods from the field of artificial intelligence (AI).
 
-All movement algorithms have this same basic form. They take geometric data about their
-own state and the state of the world, and they come up with a geometric output representing the movement they would like to make.
-Some movement algorithms require very little input: the position of the character and the
-position of an enemy to chase, for example. Others require a lot of interaction with the game
-state and the level geometry. A movement algorithm that avoids bumping into walls, for example, needs to have access to the geometry of the wall to check for potential collisions.
+Developing game AI, i.e. the algorithms that control NPCs in a game, is well-known to be a difficult problem. Three outstanding challenges contribute to this difficulty. 
+First, game developers have little time allocated to develop game AI; other aspects of game development such as storyline, graphics, and network connections usually take precedence. Second, the development of environments, called level design, is typically done independently of the development of the game AI. Yet, game AI will be controlling NPCs running in these environments. Third, games change over time.
+
+\footnote{During our work we faced all of these problems (even if we are not game developers!). We had little time to share with other homeworks/projects/exams, design was a ripoff of graphics from other games and our vision of the game kept changing during develop process!!}
+
+One of the most fundamental requirements (not the only one!!) of AI is to move characters around in the game sensibly. Even the earliest AI-controlled characters (the ghosts in Pac-Man or the opposing bat in some Pong variants) had movement algorithms that weren’t far removed from the games of today.
+
+Movements forms the lowest level of AI techniques. Many games rely solely on movement algorithms and don’t have any more advanced decision making. At the other extreme, some games don’t need moving characters at all. Resource management games and turn-based games often don’t need movement algorithms; once a decision is made where to move, the character can simply be placed there.
+\textbf{This is exactly the kind of game we choose to work on}.
+
+\begin{figure}
+  \centering
+      \includegraphics[width=0.7\textwidth]{images/wumpus.png}
+  \caption{Hunt the Wumpus, an old turn based game where the human player can be completely substituded by an AI}
+\end{figure}
 
 \section{Turn based games}
-Decision making is the ability of a character to decide what to do.
-decision making is typically a small part of the effort needed to build great game
-AI. Most games use very simple decision making systems: state machines and decision trees.
+Decision making is the ability of a character to decide what to do, is typically a small part of the effort needed to build great game
+AI. 
+Most games use very simple decision making systems: state machines and decision trees.
 Rule-based systems are rarer, but important.
 The character processes a set of information that it uses to generate an action that it wants to
 carry out. The input to the decision making system is the knowledge that a character possesses,
