@@ -4,7 +4,7 @@
 \section{State representation}
 
 The first step toward an heuristic function for \emph{Wings of War} game is to find a 
-suitable \textbf{state representation} for it. The only elements in the games are the two
+suitable \textbf{state representation} for it. The only elements in the game are the two
 players planes. For this reason the only useful data that can be used to build an heuristic
 function are closed inside the planes parameters.
 
@@ -36,7 +36,7 @@ A general heuristic function has the form of equation (\ref{eq:heuristic})
   \label{eq:heuristic}
 \end{equation}
 
-The heuristic function $H(s)$ map states $s \in \Sigma$ to $\mathbb{Z}$. $H(s)$ has
+The heuristic function $H(s)$ maps states $s \in \Sigma$ to $\mathbb{Z}$. $H(s)$ has
 positive values in the more desiderable states for the AI and negative values otherwise.
 In the extreme cases $H(s^\star)=+\infty$ means that the state $\star{s}$ is a winning state
 for the AI and $H(\star{s})=-\infty$ means that the state $\star{s}$ is a wining state for
@@ -60,13 +60,13 @@ life and an aggregated indicator about planes relative position called \emph{sho
 The life feature is the most easy and powerful heuristic feature. It is just the amount of
 remaining life for the given plane in the state $s$.
 
-The heuristic implication of this feature is obvious: more life we have in state $s$
-better is it. When the remaining life is zero the player is defeated so this feature is
+The heuristic implication of this feature is obvious: the more life we have in state $s$
+the better it is. When the remaining life is zero the player is defeated so this feature is
 really important for evaluating the goodness of a state.
 
 \subsection{Shot Value Feature}
 
-The shot value feature is more complex than the life one. It use the remaining state
+The shot value feature is more complex than the life one. It uses the remaining state
 parameters (position and orientation) to answer the question: is this position good for
 the player?
 
@@ -87,8 +87,8 @@ There are four situations:
   \centering
   \includegraphics[width=0.8\textwidth]{images/planefov.png}
   \label{img:planefov}
-  \caption{An example of shot value. The green plane has a good position respect to the
-  red one. Infact the red plane is in the \emph{fov} and in range and $ShotValue(P,s)=3$. In the
+  \caption{An example of shot value. The green plane has a good position with respect to the
+  red one. In fact the red plane is in the \emph{fov} and in range and $ShotValue(P,s)=3$. In the
   meantime the red one has a worse position: green plane is in front of it but not in
   \emph{fov} so $ShotValue(AI,s)=1$.}
 \end{figure}
@@ -97,7 +97,7 @@ To represent these situations we have the following $ShotValue(X,s)$ function.
 
 \begin{equation}
 ShotValue(X,s) = \begin{cases} 3, & \mbox{if plane is in range and fov}  \\
-  2, & \mbox{if plane is in fov} \\ 1 & \mbox{if plan is in front} \\ 0 & \mbox{otherwise}
+  2, & \mbox{if plane is in fov} \\ 1 & \mbox{if plane is in front} \\ 0 & \mbox{otherwise}
 \end{cases}
 \end{equation}
 
@@ -123,9 +123,9 @@ function for the AI but we have not talked about the weights selection.
 Different wheigts choises lead to different player behaviours. For example lower $w_2$
 values brings to a more \emph{brave} player. However $w_2$ must be always greater than
 $w_1$. The reason is that life feature is the most important one and acts like a
-"cross-integrator" of the shot-value feature: a lot of good state in shot-value feature
+``cross-integrator'' of the shot-value feature: a lot of good state in shot-value feature
 has the effect to reduce the enemy life feature increasing the overall heuristic value for
 the player.
 
-In other words, is more likely to have a good AI with $w_2=n$ and $w_1=0$ than with $w_2=0$
+In other words, it is more likely to have a good AI with $w_2=n$ and $w_1=0$ than with $w_2=0$
 and $w_1=n$.
