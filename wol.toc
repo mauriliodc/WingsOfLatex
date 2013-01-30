@@ -12,18 +12,18 @@
 \contentsline {subsection}{\numberline {2.2.6}Damage}{8}
 \contentsline {subsection}{\numberline {2.2.7}Rest of the turn}{9}
 \contentsline {subsection}{\numberline {2.2.8}Overlapping}{9}
-\contentsline {subsection}{\numberline {2.2.9}Exit from the gaming surface}{9}
-\contentsline {subsection}{\numberline {2.2.10}Victory}{9}
-\contentsline {section}{\numberline {2.3}Our game}{9}
-\contentsline {subsection}{\numberline {2.3.1}Cards}{10}
-\contentsline {chapter}{\numberline {3}Heuristics}{11}
-\contentsline {section}{\numberline {3.1}State representation}{11}
-\contentsline {section}{\numberline {3.2}Wings of War heuristic function}{11}
-\contentsline {subsection}{\numberline {3.2.1}Life Feature}{12}
-\contentsline {subsection}{\numberline {3.2.2}Shot Value Feature}{12}
-\contentsline {section}{\numberline {3.3}Weights selection}{14}
-\contentsline {chapter}{\numberline {4}The Brain}{15}
-\contentsline {section}{\numberline {4.1}Minimax}{15}
-\contentsline {section}{\numberline {4.2}Alpha-Beta pruning}{16}
-\contentsline {section}{\numberline {4.3}Adapting Alpha-Beta pruning to WOW}{18}
-\contentsline {chapter}{\numberline {5}Results}{22}
+\contentsline {subsection}{\numberline {2.2.9}Exit from the gaming surface}{10}
+\contentsline {subsection}{\numberline {2.2.10}Victory}{10}
+\contentsline {section}{\numberline {2.3}Our game}{10}
+\contentsline {subsection}{\numberline {2.3.1}Cards}{11}
+\contentsline {chapter}{\numberline {3}Heuristics}{12}
+\contentsline {section}{\numberline {3.1}State representation}{12}
+\contentsline {section}{\numberline {3.2}Wings of War heuristic function}{12}
+\contentsline {subsection}{\numberline {3.2.1}Life Feature}{13}
+\contentsline {subsection}{\numberline {3.2.2}Shot Value Feature}{13}
+\contentsline {section}{\numberline {3.3}Weights selection}{15}
+\contentsline {chapter}{\numberline {4}The Brain}{16}
+\contentsline {section}{\numberline {4.1}Minimax}{16}
+\contentsline {section}{\numberline {4.2}Alpha-Beta pruning}{17}
+\contentsline {section}{\numberline {4.3}Adapting Alpha-Beta pruning to WOW}{19}
+\contentsline {chapter}{\numberline {5}Conclusions}{24}

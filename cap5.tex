@@ -1,2 +1,20 @@
-\chapter{Results} \label{cap:results}
-Cani
+\chapter{Conclusions}
+We developed a simple game just using a slightly modified version of a well known algorithm such as Alpha-Beta Pruning, and tested it to find out whether it was challenging or not.
+It was, and quite funny.
+
+We presented the game to a reasonable number of human players, and the very most of the times the player received a very ugly defeat.
+
+We also developed a branch of the game in which two AI moved planes fight against each other.
+These experiments confirmed our hipothesis that incrementing the search depth does not always increase the outcome, in fact in more than one matches a AI player with a search depth value of 6 beated another AI player who had a search depth value of 10.
+
+As further developments, we wondered about:
+\begin{itemize}
+\item Different types of plane, each with its own moves, weapons and behaviour.
+\item Bonuses and maluses on the map.
+\item Increasing the number of possible players
+\item Increasing the number of cards
+\item Transforming the field of play from a plane to a manifold
+\item Adding one dimention to the game (plane altitude)
+\end{itemize}
+
+Many of these improvements would certainly increase the branching factor of the search, hence it is a very good thing to be able to make good decisions without the need of big search depth values.

@@ -22,7 +22,7 @@ This is why the name ``minimax''.\\
   \caption{Minimax choosing schema and a simple case example.}
 \end{figure}
 
-Of course, when the depth of the tree becomes too high to compute the actual outcome of a choice, we need to use some heuristics. Moreover, this algorithm assumes that the opponent plays with a ``perfect'' strategy, that is reasonable in normal turn-based games, but has some interesting effects when players choose more than a move each time (see chapter \ref{cap:results} for more on this).
+Of course, when the depth of the tree becomes too high to compute the actual outcome of a choice, we need to use some heuristics. Moreover, this algorithm assumes that the opponent plays with a ``perfect'' strategy, that is reasonable in normal turn-based games, but has some interesting effects when players choose more than a move each time (see section \ref{sec:minimaxwow} for more on this).
 
 \section{Alpha-Beta pruning}
 As seen in section \ref{sec:minimax}, the \textit{minimax} algorithm expands the tree up to a certain level, evaluating all the leaf nodes and backpropagating informations.
@@ -78,15 +78,26 @@ The pseudo-code will clarify:\\
 In figure \ref{fig:alphabeta_example} you can see a simple application of the alphabeta pruning algorithm. Notice that the algorithm, in some cases, prunes big portions of the tree. In the example given it may be a little advantage, but when the depth search and the branching factor grow this may lead to a huge resources saving.
 
 
-\section{Adapting Alpha-Beta pruning to WOW}
-There are several adaptations that we had to do in order to use this algorithm in our game.
+\section{Adapting Alpha-Beta pruning to WOW}\label{sec:minimaxwow}
+There are several adaptations that we had to do in order to use this algorithm in our game because Wings Of War involves two main peculiarities:
+\begin{itemize}
+\item Simultaneous moves choice (Player and AI choose at the same time)
+\item Choice of more than one move at a time
+\end{itemize}
+
+We dealed with the first point by simply simulating damages infliction every two plies.
+This guarantees that the generated tree remains the same switching the players order, that is a typical feature of the trees representing simultaneous turn-based games\footnote{In opposition with the sequential game, at each turn the players choose their moves simultaneously, without knowing the opponent's choice}.
+
+The second point causes the search depth increase not to really improve the AI outcome. This is because of the fact that the algorithm assumes that the second decision is made on the base of the opponent's first one. This can lead to erroneous conclusions about the opponent's choices.\footnote{I.E. the opponent chooses as second move a move that the algorithm didn't take into account because it would have been senseless if he/she had seen the AI first move}
+Given the actual results, we noticed that this point didn't represent a problem, in fact the AI is challenging, as long as the search depth is not set to very big values.\\
+
 We developed the algorithm taking into account the possible future advancements of the game, so we didn't stick to the \textit{2 cards} choice, but rather consider \textit{sequences} of cards.
 Obviously, the cards set is also modifiable, and some moves may prevent the choice of other moves in sequence.
 
 The algorithm takes into account all of these aspects, even if at the very moment they are not used in the game.\\
 
-Since the heuristic function returns a discrete value, It is quite likely that two good sequences have the same result. In a sequential turn-based game\footnote{A game where a player moves after he has seen the opponent's move} either of the choices would be ok, so we could simply keep going with the first we found.
-In a simultaneous turn-based game\footnote{In opposition with the sequential game, at each turn the players choose their moves simultaneously, without knowing the opponent's choice} like this, varying the strategy could help winning the game, because the opponent can't predict which will be the choice.
+Since the heuristic function returns a discrete value, It is quite likely that two good sequences have the same result. In a sequential turn-based game either of the choices would be ok, so we could simply keep going with the first we found.
+In a simultaneous turn-based game like this, varying the strategy could help winning the game, because the opponent can't predict which will be the choice.
 
 For this reason, we introduced a code block that, in the case that the computed heuristic of the newly analyzed sequence is the same value stored in alpha(if maximizing) or beta(if minimizing), there is a chance that the stored sequence is overwritten by the new one.
 \vspace{2cm}
@@ -95,7 +106,8 @@ For this reason, we introduced a code block that, in the case that the computed 
 Pseudo-code of the algorithm:
 {\footnotesize
   \lstset{language=C}
-  \begin{lstlisting}
+  \begin{lstlisting}[frame=shadowbox,breaklines]
+  	
     global variables:
     	SEARCH_DEPTH		// levels to analyze
         MOVES_CHANGE		// chance to choose the new
