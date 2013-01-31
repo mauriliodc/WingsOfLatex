@@ -35,29 +35,22 @@ If the explored child's value turns out to be too good for the active player (th
 The pseudo-code will clarify:\\
 {\footnotesize
 \lstset{language=C}
-\begin{lstlisting}
-  function alphabeta(node, level, search_depth, alpha, beta,
-                     				maximizing)
+\begin{lstlisting}[frame=shadowbox,breaklines]
+  function alphabeta(node, level, search_depth, alpha, beta, maximizing)
   {
     if level == search_depth	// this is a leaf node
     	return the heuristic value of the node
     
     if maximizing		// MAX player
     	for each child of node
-        	alpha = max(alpha, alphabeta(child, level+1,
-                			search_depth, alpha,
-                        		beta, !maximizing)
-                           )
+        	alpha = max(alpha, alphabeta(child, level+1, search_depth, alpha, beta, !maximizing))
                 if beta <= alpha
                 	break	// Beta cut-off
         return alpha
         
     else			// MIN player
     	for each child of node
-        	beta = min(alpha, alphabeta(child, level+1,
-                			search_depth, alpha,
-                        		beta, !maximizing)
-                           )
+        	beta = min(alpha, alphabeta(child, level+1, search_depth, alpha, beta, !maximizing))
                 if beta <= alpha
                 	break	// Alpha cut-off
         return beta
@@ -109,12 +102,14 @@ Pseudo-code of the algorithm:
   \begin{lstlisting}[frame=shadowbox,breaklines]
   	
     global variables:
-    	SEARCH_DEPTH		// levels to analyze
-        MOVES_CHANGE		// chance to choose the new
-        			// sequence when its heuristic
-                                // equals the currently chosen
-                                // sequence one
-        CHOICES_PER_TURN	// how many moves must be chosen
+    		// levels to analyze
+    	SEARCH_DEPTH
+        
+        	// chance to choose the new sequence when its heuristic equals the currently chosen sequence one
+        MOVES_CHANGE
+        
+        	// how many moves must be chosen
+        CHOICES_PER_TURN
     
     // each level of the search is a ply, so the search_depth
     // must be at least 2 times CHOICES_PER_TURN.
@@ -122,38 +117,34 @@ Pseudo-code of the algorithm:
     
     algorithm:
     alphabeta(depth,maximizing,alpha,beta, actual_sequence, &choice)
-      // 'choice' is side-effected to back-propagate informations.
-      // it is the chosen sequence from the current node, the
-      // parent of the current node could still discard it.
+      // 'choice' is side-effected to back-propagate informations. it is the chosen sequence from the current node, the parent of the current node could still discard it.
     { 
       if depth == SEARCH_DEPTH	// leaf node
       	choice = actual_sequence
         return the heuristic value of this sequence
       
-      improved = false	// will be set to true if some better
-      			// solution is found
+      	// improved will be set to true if some better solution is found
+      improved = false
       
       if maximizing	// MAX player
       	if the plane is dead
         	return a very low value
         if the plane can`t move remaining inside the field
-        	return -infinity	// death is preferred
-                			// over suicide
+        	// death is preferred over suicide
+        	return -infinity
         
         child_seq = new empty sequence
         
         for each possible move
         	queue this move to actual_sequence
                 update status	// move the planes
-                child_heur = alphabeta(depth+1, !maximizing, alpha,
-					beta, actual_sequence,
-                                        child_seq)
+                child_heur = alphabeta(depth+1, !maximizing, alpha, beta, actual_sequence, child_seq)
                 restore status
         	
                 // now analyze the child
-                up_seq = false	// tells whether child_seq should
-				// become the new (locally)
-                                // preferred sequence
+                up_seq = false
+                // up_seq tells whether child_seq should become the new (locally) preferred sequence
+                
                 if alpha < child_heur
                 	up_seq = true;
                 if alpha == child_heur
@@ -166,9 +157,9 @@ Pseudo-code of the algorithm:
                 	choice = child_seq
                 
                 if beta <= alpha
-                	break	// beta cut-off (MIN player can do
-				// better with different choices,
-				// so we can avoid further searching)
+                	// beta cut-off (MIN player can do better with different choices, so we can avoid further searching)
+                        break	
+                                
       else		// MIN player
       	if the plane is dead
         	return a very high value (bad for MIN player)
@@ -180,16 +171,15 @@ Pseudo-code of the algorithm:
         
         for each possible move
         	queue this move to actual_sequence
-                update status	// move the planes and inflict damages
-                child_heur = alphabeta(depth+1, !maximizing, alpha,
-					beta, actual_sequence,
-                                        child_seq)
+                // move the planes and inflict damages
+                update status
+                child_heur = alphabeta(depth+1, !maximizing, alpha, beta, actual_sequence, child_seq)
                 restore status
         	
                 // now analyze the child
-                up_seq = false	// tells whether child_seq should
-				// become the new (locally)
-                                // preferred sequence
+                
+                // up_seq tells whether child_seq should become the new (locally) preferred sequence
+                up_seq = false
                 if beta > child_heur
                 	up_seq = true;
                 if beta == child_heur
@@ -202,9 +192,8 @@ Pseudo-code of the algorithm:
                 	choice = child_seq
                 
                 if beta <= alpha
-                	break	// alpha cut-off (MAX player can do
-				// better with different choices,
-				// so we can avoid further searching)
+                	// alpha cut-off (MAX player can do better with different choices, so we can avoid further searching)
+                        break
       if improved
       	return:	alpha if maximizing
         	beta if minimizing
